@@ -27,6 +27,8 @@ export const projects = [
       '使用路由懒加载按页面拆分资源，优化首屏加载速度',
       '数据与视图分离：内容集中在数据模块，为后续接入 CMS 或接口预留空间',
       '部署于 Vercel 并配置 history 路由重写，解决 SPA 刷新 404 问题'
-    ]
+    ],
+    link: 'https://huangwenhong-blog.vercel.app',
+    repo: 'https://gitee.com/little-rainbow0713/huangwenhong-blog'
   }
 ]

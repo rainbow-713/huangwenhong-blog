@@ -26,6 +26,16 @@
             <li v-for="(point, i) in project.points" :key="i">{{ point }}</li>
           </ul>
         </div>
+
+        <!-- 在线体验 / 源码链接：有数据才渲染 -->
+        <div v-if="project.link || project.repo" class="project-links">
+          <a v-if="project.link" :href="project.link" target="_blank" rel="noopener" class="btn btn-primary">
+            在线体验
+          </a>
+          <a v-if="project.repo" :href="project.repo" target="_blank" rel="noopener" class="btn btn-ghost">
+            查看源码
+          </a>
+        </div>
       </article>
     </div>
 
@@ -134,6 +144,39 @@ import { projects } from '../data/projects.js'
   font-size: 13px;
   color: var(--color-text-2);
   text-align: center;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-ghost {
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 @media (max-width: 768px) {

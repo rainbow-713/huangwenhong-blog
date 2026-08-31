@@ -10,7 +10,7 @@
         联系我：
         <a :href="`mailto:${profile.email}`" class="footer-link">{{ profile.email }}</a>
         ·
-        <a href="https://gitee.com" target="_blank" rel="noopener" class="footer-link">
+        <a href="https://gitee.com/little-rainbow0713" target="_blank" rel="noopener" class="footer-link">
           Gitee 主页
         </a>
       </p>
