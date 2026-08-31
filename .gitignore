@@ -1,0 +1,17 @@
+# 依赖目录，永远不提交
+node_modules/
+
+# 打包产物，可通过 npm run build 重新生成
+dist/
+
+# 本地环境变量文件（如果以后用到）
+.env
+.env.local
+.env.*.local
+
+# 编辑器与系统临时文件
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+*.log
+Thumbs.db
