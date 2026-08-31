@@ -2,9 +2,11 @@
 
 一个纯静态的个人博客与求职作品集，记录前端学习之路与面试冲刺全过程。
 
-在线访问：[https://huangwenhong-blog.vercel.app](https://huangwenhong-blog.vercel.app)
+在线访问：[https://rainbow-713.github.io/huangwenhong-blog/](https://rainbow-713.github.io/huangwenhong-blog/)（GitHub Pages，国内可访问）
 
-源码仓库：[https://gitee.com/little-rainbow0713/huangwenhong-blog](https://gitee.com/little-rainbow0713/huangwenhong-blog)
+备用地址：[https://huangwenhong-blog.vercel.app](https://huangwenhong-blog.vercel.app)（Vercel，海外网络可访问）
+
+源码仓库：[GitHub](https://github.com/rainbow-713/huangwenhong-blog) · [Gitee](https://gitee.com/little-rainbow0713/huangwenhong-blog)
 
 ## 项目定位
 

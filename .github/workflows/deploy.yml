@@ -28,7 +28,10 @@ jobs:
           node-version: 20
       # 按 package-lock.json 精确安装依赖
       - run: npm ci
+      # 项目站点部署在 /<仓库名>/ 子路径下，通过环境变量告诉 Vite
       - run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
       - uses: actions/configure-pages@v5
       # 把构建产物 dist 目录上传为 Pages 部署包
       - uses: actions/upload-pages-artifact@v3

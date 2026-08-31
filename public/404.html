@@ -7,10 +7,12 @@
       // GitHub Pages 的 SPA 兜底技巧（spa-github-pages 方案）：
       // history 模式下刷新深层路径（如 /notes/1）时，GitHub Pages 会返回 404，
       // 但它会优先使用我们自定义的 404.html（就是这个文件）。
-      // 这里先把用户想访问的完整地址存进 sessionStorage，再跳回首页；
+      // 这里先把用户想访问的完整地址存进 sessionStorage，再跳回项目首页；
       // 首页 index.html 里有一段脚本会把地址还原回去，交给前端路由接管。
-      sessionStorage.redirect = location.href;
-      location.replace('/');
+      // 项目站点的第一级路径是仓库名，必须保留，否则就跳出本项目了
+      sessionStorage.redirect = location.href
+      var firstSegment = location.pathname.split('/').filter(Boolean)[0]
+      location.replace(firstSegment ? '/' + firstSegment + '/' : '/')
     </script>
   </head>
   <body></body>

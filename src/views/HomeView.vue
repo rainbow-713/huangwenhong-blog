@@ -20,7 +20,7 @@
         </div>
         <p class="hero-learning">{{ profile.learning }}</p>
         <div class="hero-actions">
-          <router-link to="/about" class="btn btn-primary">了解我 →</router-link>
+          <router-link to="/about" class="btn btn-primary">了1111解我 →</router-link>
           <router-link to="/notes" class="btn btn-ghost">学习笔记</router-link>
         </div>
       </div>

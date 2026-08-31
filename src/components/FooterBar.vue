@@ -14,7 +14,7 @@
           Gitee 主页
         </a>
       </p>
-      <p class="footer-tech">本站由 Vue3 + Vite 构建 · 部署于 Vercel</p>
+      <p class="footer-tech">本站由 Vue3 + Vite 构建 · 部署于 GitHub Pages / Vercel</p>
     </div>
   </footer>
 </template>

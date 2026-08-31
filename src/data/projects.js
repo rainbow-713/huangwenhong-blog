@@ -26,9 +26,10 @@ export const projects = [
       '全站组件化设计：布局组件与内容组件分层，通过 props 传递数据',
       '使用路由懒加载按页面拆分资源，优化首屏加载速度',
       '数据与视图分离：内容集中在数据模块，为后续接入 CMS 或接口预留空间',
-      '部署于 Vercel 并配置 history 路由重写，解决 SPA 刷新 404 问题'
+      '双平台部署：GitHub Pages（国内可访问）+ Vercel，配置 history 路由重写与 404 兜底，解决 SPA 刷新 404 问题',
+      'GitHub Actions 自动部署：推送代码后 CI 自动构建上线，最小 CI/CD 实践'
     ],
-    link: 'https://huangwenhong-blog.vercel.app',
-    repo: 'https://gitee.com/little-rainbow0713/huangwenhong-blog'
+    link: 'https://rainbow-713.github.io/huangwenhong-blog/',
+    repo: 'https://github.com/rainbow-713/huangwenhong-blog'
   }
 ]
