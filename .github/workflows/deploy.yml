@@ -1,0 +1,46 @@
+# GitHub Pages 自动部署工作流
+# 面试知识点：这是 CI/CD（持续集成/持续部署）的最小实践——
+# 每次 push 到 main 分支，GitHub 会自动跑这个流程：装依赖 → 构建 → 发布到 Pages
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+# Pages 部署所需的权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只允许一个部署任务在跑
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # 按 package-lock.json 精确安装依赖
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      # 把构建产物 dist 目录上传为 Pages 部署包
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

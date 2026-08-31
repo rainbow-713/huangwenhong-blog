@@ -57,7 +57,9 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  // import.meta.env.BASE_URL 取自 vite.config.js 的 base 配置，
+  // 部署在子路径（如 GitHub Pages 项目站点）时路由也能正确工作
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   // 切换路由后滚动到页面顶部，避免停留在上一个页面的滚动位置
   scrollBehavior() {

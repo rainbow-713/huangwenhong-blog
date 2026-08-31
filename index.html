@@ -7,6 +7,17 @@
     <title>黄雯宏的个人博客</title>
   </head>
   <body>
+    <!-- GitHub Pages SPA 兼容：配合 public/404.html，
+         把深层路径刷新时的地址还原回来，交给前端路由接管 -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.redirect
+        delete sessionStorage.redirect
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect)
+        }
+      })()
+    </script>
     <!-- id="app" 是 Vue 应用的挂载点，main.js 里 createApp().mount('#app') 会挂到这里 -->
     <div id="app"></div>
     <!-- type="module" 表示这是 ES Module 脚本，Vite 开发时会从这里入口做模块热更新 -->
