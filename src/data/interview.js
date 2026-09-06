@@ -200,6 +200,84 @@ export const interviewQuestions = [
     ],
     answerDemo: '这是我独立完成的前端作品集项目，用 Vue3 + Vite + Vue Router 开发，纯静态部署在 Vercel。它包含数字化简历、学习笔记、项目展示和面试题库四个模块。开发中我解决了 history 模式刷新 404 的问题，坚持手写 CSS 锻炼布局能力，并建立了自己的代码规范与提交规范。这个项目让我第一次走完了一个产品从规划到上线的完整流程。',
     source: '内置题库'
+  },
+  {
+    id: 15,
+    category: '项目与综合',
+    question: '介绍你的毕业设计「网上书店系统」，技术选型是怎么考虑的？',
+    keyPoints: [
+      '定位：前后端分离的网上书店，含商城/阅读专栏/留言板/个人中心',
+      'Vue3 + TypeScript：类型定义贯穿 store、api、视图三层，编译期拦截字段错误',
+      'Pinia 管理登录态与购物车，数据持久化到 localStorage',
+      'api 层模拟异步接口，未来可无缝切换真实后端'
+    ],
+    answerDemo: '我的毕设是一个网上书店系统，用 Vue3 + TypeScript + Pinia + Vue Router 开发。选 TS 是因为项目涉及用户、图书、购物车等多个数据模型，类型定义能在编译期发现字段错误。数据层我设计成模拟异步 API，视图只依赖 api 层不关心数据来源，后续接真实后端只需改 api 层。难点是登录鉴权和购物车状态的设计，这让我第一次完整实践了前端分层架构。',
+    source: '模拟面试 2026-09-01'
+  },
+  {
+    id: 16,
+    category: '项目与综合',
+    question: '书店项目的登录鉴权是怎么实现的？有什么安全问题？',
+    keyPoints: [
+      '登录成功后用户信息存 localStorage，路由守卫 beforeEach 读它判断是否放行',
+      '未登录访问受限页时 next 重定向到登录页并带 redirect 参数',
+      '诚实边界：这是纯前端演示方案，真实项目必须后端校验、密码加盐哈希存储',
+      '真实方案：Token/JWT + axios 拦截器带 Authorization 头 + 401 统一跳登录'
+    ],
+    answerDemo: '我的实现是登录成功后把用户信息存入 localStorage，全局路由守卫在 beforeEach 里检查目标路由的 requiresAuth 标记，未登录就重定向到登录页并携带原地址，登录后跳回。这是纯前端的演示方案，它的边界我很清楚：密码明文存本地、前端校验可被绕过。真实项目应该由后端验证并下发 Token，前端用 axios 拦截器统一携带凭证，遇到 401 统一跳登录。',
+    source: '模拟面试 2026-09-01'
+  },
+  {
+    id: 17,
+    category: '项目与综合',
+    question: '购物车状态是怎么设计的？有哪些细节问题？',
+    keyPoints: [
+      'CartItem 存完整 book 对象 + 数量，重复加入时累加数量',
+      '总价用 computed 实时计算，避免手动同步',
+      '数据持久化到 localStorage，刷新不丢',
+      '加分点：金额用浮点累加有精度问题，真实电商以"分"为单位存整数'
+    ],
+    answerDemo: '购物车放在 Pinia 里，因为图书列表、详情页、购物车面板三个地方都要读写它。每个条目是图书对象加数量，重复加入同一本书时累加数量而不是新增条目。总价和总数用 computed 派生，保证永远和条目一致。状态变更同步写入 localStorage 实现持久化。一个要改进的细节是价格用浮点数累加有精度风险，真实项目应该以分为单位用整数计算。',
+    source: '模拟面试 2026-09-01'
+  },
+  {
+    id: 18,
+    category: '项目与综合',
+    question: '为什么搜索要做防抖？防抖和节流的区别？',
+    keyPoints: [
+      '搜索输入每敲一个字就触发 watch，立即请求会造成大量无效请求',
+      '防抖：停止输入一段时间（如 300ms）后才执行，适合搜索框',
+      '节流：固定频率执行，适合滚动加载、按钮防连点',
+      '实现：watch 里 clearTimeout 旧定时器再 setTimeout 新的'
+    ],
+    answerDemo: '我的图书搜索监听了输入关键词，每输入一个字符都会触发变化，如果立即请求，打"三体"两个字就会发出多次请求。所以我用防抖：每次变化先清掉上一次的定时器，重新等 300 毫秒，用户停止输入后才真正执行查询。防抖适合"等你做完再做"的场景如搜索；节流适合"匀速做"的场景如滚动事件，固定间隔执行一次。',
+    source: '模拟面试 2026-09-01'
+  },
+  {
+    id: 19,
+    category: '项目与综合',
+    question: '你的博客是怎么实现 GitHub Pages 自动部署的？',
+    keyPoints: [
+      'GitHub Actions：push 到 main 自动触发 npm ci → build → 上传 dist → 部署',
+      'npm ci 按 lockfile 精确安装，比 npm install 更适合 CI',
+      'Pages 项目站点在子路径，构建时注入 BASE_PATH 让 Vite 资源路径正确',
+      'concurrency 保证同时只有一个部署任务'
+    ],
+    answerDemo: '我用 GitHub Actions 做了 CI/CD：每次 push 到 main 分支自动执行流水线，先检出代码、装 Node 20，用 npm ci 按 lockfile 精确安装依赖，然后构建。因为 GitHub Pages 项目站点部署在仓库名子路径下，我通过环境变量把子路径传给 Vite，保证打包后的资源和路由路径正确，最后把 dist 上传并部署到 Pages。整个过程从提交到上线全自动。',
+    source: '模拟面试 2026-09-01'
+  },
+  {
+    id: 20,
+    category: '项目与综合',
+    question: 'SPA 刷新 404 是怎么产生的？你的两个项目分别怎么解决的？',
+    keyPoints: [
+      'history 模式深层路径刷新时，服务器找不到对应文件返回 404',
+      'hash 模式 # 后内容不发给服务器，天然不存在这个问题',
+      'Vercel：vercel.json 配置 rewrites 把所有路径重写回 index.html',
+      'GitHub Pages：404 页面重定向技巧兜底'
+    ],
+    answerDemo: 'SPA 用 history 模式时，深层路径刷新会把完整路径发给服务器，静态托管上没有对应文件就返回 404。我的书店项目用了 hash 路由，# 后面的内容不会发给服务器，天然避开这个问题，适合纯静态部署。博客项目追求干净的 URL 用了 history 模式，在 Vercel 上通过 rewrites 把所有请求重写回 index.html 交给前端路由，在 GitHub Pages 上则用 404 页面重定向的方式兜底。',
+    source: '模拟面试 2026-09-01'
   }
 ]
 
