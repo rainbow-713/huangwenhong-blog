@@ -42,12 +42,6 @@ const routes = [
     meta: { title: '项目展示' }
   },
   {
-    path: '/interview',
-    name: 'Interview',
-    component: () => import('../views/InterviewView.vue'),
-    meta: { title: '面试准备' }
-  },
-  {
     // 通配路由放在最后，兜底所有未匹配的路径
     path: '/:pathMatch(.*)*',
     name: 'NotFound',

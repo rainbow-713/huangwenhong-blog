@@ -49,8 +49,7 @@ const navItems = [
   { path: '/', label: '首页' },
   { path: '/about', label: '关于我' },
   { path: '/notes', label: '学习笔记' },
-  { path: '/projects', label: '项目展示' },
-  { path: '/interview', label: '面试准备' }
+  { path: '/projects', label: '项目展示' }
 ]
 
 // 移动端菜单开关状态
