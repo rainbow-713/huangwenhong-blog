@@ -19,15 +19,13 @@ export const projects = [
     name: '个人博客（本站）',
     period: '2026.08',
     status: '已上线',
-    desc: '从零独立设计并开发的前端求职作品集网站，包含首页、数字化简历、学习笔记、项目展示与面试题库五大模块，纯静态部署，持续迭代中。',
-    techs: ['Vue3', 'Vite', 'Vue Router 4', '原生 CSS'],
+    desc: '从零独立开发的个人求职作品集网站，包含首页、学习笔记、项目展示、关于我等页面，已上线，持续更新中。',
+    techs: ['Vue3', 'Vite', 'Vue Router 4', '原生 CSS', 'GitHub Actions'],
     points: [
-      '独立完成从需求规划、目录设计到部署上线的完整开发流程',
-      '全站组件化设计：布局组件与内容组件分层，通过 props 传递数据',
-      '使用路由懒加载按页面拆分资源，优化首屏加载速度',
-      '数据与视图分离：内容集中在数据模块，为后续接入 CMS 或接口预留空间',
-      '双平台部署：GitHub Pages（国内可访问）+ Vercel，配置 history 路由重写与 404 兜底，解决 SPA 刷新 404 问题',
-      'GitHub Actions 自动部署：推送代码后 CI 自动构建上线，最小 CI/CD 实践'
+      '独立完成从设计、开发到部署上线的完整流程',
+      '学习笔记、项目等内容统一放在独立的数据文件中管理，页面只负责展示，更新内容无需改动页面代码',
+      '配置 GitHub Actions 自动部署，push 代码即可自动构建上线，并同时发布到 GitHub Pages 与 Vercel 两个平台',
+      '使用 CSS 变量统一管理主题配色，结合 Flex 布局实现响应式页面，适配不同屏幕尺寸'
     ],
     link: 'https://rainbow-713.github.io/huangwenhong-blog/',
     repo: 'https://github.com/rainbow-713/huangwenhong-blog'
