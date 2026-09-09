@@ -16,3 +16,6 @@ dist/
 *.log
 Thumbs.db
 .vercel
+.idea
+.PVS-Studio
+.qoder/repowiki
