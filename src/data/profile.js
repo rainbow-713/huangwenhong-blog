@@ -43,12 +43,12 @@ export const learningTimeline = [
   },
   {
     time: '框架阶段',
-    title: 'Vue3 体系课程',
+    title: 'Vue3 体系22课程',
     desc: '完成 Vue3 网课学习，掌握组件化开发、响应式原理、组合式 API 与 Vue Router'
   },
   {
     time: '实战阶段',
-    title: '本博客项目',
+    title: '本博客项222目',
     desc: '从零独立完成本博客：需求规划、组件设计、路由设计、部署上线全流程实战'
   }
 ]

@@ -124,14 +124,16 @@ const latestNotes = computed(() => notes.slice(0, 3))
 .btn {
   display: inline-block;
   padding: 9px 22px;
-  border-radius: 8px;
+  border-radius: 15px;
   font-size: 14px;
+  color: #fff;
   transition: background 0.2s, color 0.2s;
 }
 
 .btn-primary {
   background: var(--color-primary);
-  color: #fff;
+      color: #220707;
+
 }
 
 .btn-primary:hover {
