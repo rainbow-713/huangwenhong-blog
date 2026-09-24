@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day03 我的笔记架</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+    }
+    .card {
+      max-width: 420px;
+      margin: 24px auto;
+      padding: 24px;
+      border-radius: 12px;
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>我的笔记架</h1>
+    <p>笔记总数：<span id="note-total">待计算</span></p>
+    <h2 id="note-title">等待显示标题</h2>
+    <p id="note-summary">等待显示摘要</p>
+  </main>
+  <script>
+    const titleText = document.getElementById('note-title');
+const summaryText = document.getElementById('note-summary');
+const totalText = document.getElementById('note-total');
+console.log(titleText);
+console.log(summaryText);
+console.log(totalText);
+const note = {
+  id: 101,
+  title: '认识 HTML',
+  summary: 'HTML 用来描述网页结构。'
+};
+console.log(note.title);
+console.log(note.summary);
+titleText.textContent = note.title;
+summaryText.textContent = note.summary;
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day01 笔记卡片</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+    }
+    .card {
+      max-width: 420px;
+      margin: 24px auto;
+      padding: 24px;
+      border-radius: 12px;
+      background: white;
+    }
+    button {
+      padding: 8px 12px;
+      margin: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <article class="card">
+    <h1>我的第一篇笔记</h1>
+    <p>今天练习让按钮改变页面上的文字。</p>
+   <p>阅读状态：<span id="note-status" aria-live="polite">未阅读</span></p>
+<button id="read-button" type="button">标记已读</button>
+  </article>
+  <script>
+  // 今天的交互代码写在这
+
+  const statusText = document.getElementById('note-status');
+const readButton = document.getElementById('read-button');
+console.log(statusText);
+console.log(readButton);
+function markRead() {
+  statusText.textContent = '已阅读';
+}
+readButton.addEventListener('click', markRead);
+</script>
+</body>
+</html>
